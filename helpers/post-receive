@@ -1,0 +1,22 @@
+#!/bin/bash
+BRANCH="master"
+GIT_DIR=$(pwd)
+TARGET="${GIT_DIR}_src"
+while read oldrev newrev ref
+do
+    # only checking out the master (or whatever branch you would like to deploy)
+     if [[ $ref = refs/heads/"$BRANCH" ]];
+     then
+        echo "Hooking compose with $oldrev $newrev $ref"
+        #$HOME/go/bin/compose-hook "$oldrev" "$newrev" "$ref"
+        echo "Ref $ref received. Deploying ${BRANCH} branch to production..."
+        mkdir -p $TARGET
+    	/usr/bin/git --work-tree=$TARGET --git-dir=$GIT_DIR checkout -f
+    	cd $TARGET
+    	/usr/bin/docker-compose build
+    	/usr/bin/docker-compose up --detach --force-recreate
+     else
+         echo "Ref $ref received. Doing nothing: only the ${BRANCH} branch may be deployed on this server."
+     fi
+done
+

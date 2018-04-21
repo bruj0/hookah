@@ -1,0 +1,20 @@
+#!/bin/bash
+DOMAIN="coderscorp.com"
+APP_DIR=$HOME/apps
+echo "Adding new app $1"
+echo "Creating $APP_DIR/$1"
+mkdir -p $APP_DIR/$1
+cd $APP_DIR/$1
+
+echo "Creating repository"
+git init --bare
+
+echo "Copying hooks"
+cp $HOME/helpers/post-receive $APP_DIR/$1/hooks/
+
+echo "Symlinking ssl certs"
+ln -s /etc/letsencrypt/archive/$DOMAIN/fullchain1.pem $HOME/certs/$1.$DOMAIN.crt 
+ln -s etc/letsencrypt/archive/$DOMAIN/privkey1.pem $HOME/certs/$1.$DOMAIN.key 
+
+
+
