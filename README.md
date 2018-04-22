@@ -1,9 +1,17 @@
 # Instant App deployment from GIT
-
 by Rodrigo A. Diaz Leven 
 
-[TOC]
-
+- - [Instant App deployment from GIT](#instant-app-deployment-from-git)
+  * [Introduction](#introduction)
+  * [Diagram of workflow](#diagram-of-workflow)
+  * [Server configuration](#server-configuration)
+    + [Pre requisites](#pre-requisites)
+    + [Installation](#installation)
+  * [Deployment](#deployment)
+  * [How it works](#how-it-works)
+    + [Git Shell command: newapp](#git-shell-command--newapp)
+    + [Git Hook for post-receive](#git-hook-for-post-receive)
+    + [Nginx-Proxy](#nginx-proxy)
 ## Introduction
 
 This article is about how to deploy to a server directly from our GIT client, either from command line or from a GUI.
@@ -18,7 +26,7 @@ This creates a container with an added application that listen to Docker events 
 
 ## Diagram of workflow
 
-![](Direct Deployment with Git.png)
+![](https://raw.githubusercontent.com/bruj0/hookah/master/Direct%20Deployment%20with%20Git.png)
 
 ## Server configuration
 
