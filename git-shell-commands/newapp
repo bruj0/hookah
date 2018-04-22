@@ -1,5 +1,5 @@
 #!/bin/bash
-DOMAIN="coderscorp.com"
+DOMAIN="example.com"
 APP_DIR=$HOME/apps
 echo "Adding new app $1"
 echo "Creating $APP_DIR/$1"
