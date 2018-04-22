@@ -25,8 +25,9 @@ Almost everything will be automated, including the Nginx configuration which is 
 This creates a container with an added application that listen to Docker events and creates configuration on the fly for Nginx using environment variables for our apps.
 
 ## Diagram of workflow
-
-![](https://raw.githubusercontent.com/bruj0/hookah/master/Direct%20Deployment%20with%20Git.png)
+<p align="center"> 
+<img src="https://raw.githubusercontent.com/bruj0/hookah/master/Direct%20Deployment%20with%20Git.png">
+</p>
 
 ## Server configuration
 
